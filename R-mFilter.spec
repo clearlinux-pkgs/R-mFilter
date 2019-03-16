@@ -4,7 +4,7 @@
 #
 Name     : R-mFilter
 Version  : 0.1.4
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/mFilter_0.1-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mFilter_0.1-4.tar.gz
 Summary  : Miscellaneous Time Series Filters
@@ -13,12 +13,13 @@ License  : GPL-2.0+
 BuildRequires : buildreq-R
 
 %description
-for smoothing and extracting trend and cyclical components of a
-        time series. The routines are commonly used in economics and
-        finance, however they should also be interest to other areas.
-        Currently, Christiano-Fitzgerald, Baxter-King,
-        Hodrick-Prescott, Butterworth, and trigonometric regression
-        filters are included in the package.
+# mFilter
+The mFilter package implements several time series filters useful for
+smoothing and extracting trend and cyclical components of a time series.
+The routines are commonly used in economics and finance, however they
+should also be interest to other areas. Currently,
+Christiano-Fitzgerald, Baxter-King, Hodrick-Prescott, Butterworth, and
+trigonometric regression filters are included in the package.
 
 %prep
 %setup -q -c -n mFilter
@@ -28,11 +29,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537755565
+export SOURCE_DATE_EPOCH=1552774717
 
 %install
+export SOURCE_DATE_EPOCH=1552774717
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1537755565
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -67,8 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library mFilter|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  mFilter || :
 
 
 %files
