@@ -4,7 +4,7 @@
 #
 Name     : R-mFilter
 Version  : 0.1.4
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/mFilter_0.1-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mFilter_0.1-4.tar.gz
 Summary  : Miscellaneous Time Series Filters
