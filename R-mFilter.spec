@@ -4,41 +4,40 @@
 #
 Name     : R-mFilter
 Version  : 0.1.5
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/mFilter_0.1-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mFilter_0.1-5.tar.gz
 Summary  : Miscellaneous Time Series Filters
 Group    : Development/Tools
 License  : GPL-2.0+
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# mFilter
-The mFilter package implements several time series filters useful for
-smoothing and extracting trend and cyclical components of a time series.
-The routines are commonly used in economics and finance, however they
-should also be interest to other areas. Currently,
-Christiano-Fitzgerald, Baxter-King, Hodrick-Prescott, Butterworth, and
-trigonometric regression filters are included in the package.
+for smoothing and extracting trend and cyclical components of a
+        time series. The routines are commonly used in economics and
+        finance, however they should also be interest to other areas.
+        Currently, Christiano-Fitzgerald, Baxter-King,
+        Hodrick-Prescott, Butterworth, and trigonometric regression
+        filters are included in the package.
 
 %prep
 %setup -q -c -n mFilter
+cd %{_builddir}/mFilter
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571864922
+export SOURCE_DATE_EPOCH=1589535514
 
 %install
-export SOURCE_DATE_EPOCH=1571864922
+export SOURCE_DATE_EPOCH=1589535514
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
